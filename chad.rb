@@ -20,7 +20,7 @@ if string != most_recent_review
 	b = stars.match /(?<number>\d\.\d)\sstar\srating/
 	rating = b[:number].to_i
 	emoji  = ":star:"
-	post_string = "Here's my #{emoji * rating} review for #{string}!"
+	post_string = "Here is my #{emoji * rating} review for #{string}!"
 	#post to slack
 	`curl -X POST --data-urlencode 'payload={"channel": "#{slack_channel}", "username": "#{slack_user}", "text": "#{post_string}", "icon_emoji": "#{slack_emoji}"}' #{slack_url}`
 	#change most recent review in this file
